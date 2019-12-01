@@ -10,6 +10,9 @@ variable "aws_profile" {}
 variable "aws_account_id" {
     default = "597586409111"
 }
+variable "aws_currency" {
+    default = "EUR"
+}
 variable "aws_ami_ubuntu_server_16_04_lts" {
     default = "ami-0987ee37af7792903"
 }
