@@ -8,3 +8,12 @@ resource "aws_instance" "example" {
         "Environment" = "${var.aws_environment_tag}"
     }
 }
+
+resource "aws_ecr_repository" "ecr_repo_docker" {
+  name                 = "ecr_repo_docker"
+  image_tag_mutability = "IMMUTABLE"
+
+  image_scanning_configuration {
+    scan_on_push = true
+  }
+}
