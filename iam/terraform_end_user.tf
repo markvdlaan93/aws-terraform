@@ -20,32 +20,32 @@ resource "aws_iam_group" "terraform_end_user_group" {
     name = "terraform_end_user_group"
 }
 
-resource "aws_iam_group_policy_attachment" "ec2_full_access" {
+resource "aws_iam_group_policy_attachment" "terraform_end_user_ec2_full_access" {
     group       = "${aws_iam_group.terraform_end_user_group.name}"
     policy_arn  = "arn:aws:iam::aws:policy/AmazonEC2FullAccess"
 }
 
-resource "aws_iam_group_policy_attachment" "ec2_container_registry_full_access" {
+resource "aws_iam_group_policy_attachment" "terraform_end_user_ec2_container_registry_full_access" {
     group       = "${aws_iam_group.terraform_end_user_group.name}"
     policy_arn  = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryFullAccess"
 }
 
-resource "aws_iam_group_policy_attachment" "s3_full_access" {
+resource "aws_iam_group_policy_attachment" "terraform_end_user_s3_full_access" {
     group       = "${aws_iam_group.terraform_end_user_group.name}"
     policy_arn  = "arn:aws:iam::aws:policy/AmazonS3FullAccess"
 }
 
-resource "aws_iam_group_policy_attachment" "kinesis_full_access" {
+resource "aws_iam_group_policy_attachment" "terraform_end_user_kinesis_full_access" {
     group       = "${aws_iam_group.terraform_end_user_group.name}"
     policy_arn  = "arn:aws:iam::aws:policy/AmazonKinesisFullAccess"
 }
 
-resource "aws_iam_group_policy_attachment" "dynamo_db_full_access" {
+resource "aws_iam_group_policy_attachment" "terraform_end_user_dynamo_db_full_access" {
     group       = "${aws_iam_group.terraform_end_user_group.name}"
     policy_arn  = "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess"
 }
 
-resource "aws_iam_group_policy_attachment" "sns_full_access" {
+resource "aws_iam_group_policy_attachment" "terraform_end_user_sns_full_access" {
     group       = "${aws_iam_group.terraform_end_user_group.name}"
     policy_arn  = "arn:aws:iam::aws:policy/AmazonSNSFullAccess"
 }
