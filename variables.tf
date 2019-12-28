@@ -7,9 +7,7 @@ variable "aws_availability_zone" {
     default = "eu-west-1a"
 }
 variable "aws_profile" {}
-variable "aws_account_id" {
-    default = "597586409111"
-}
+variable "aws_account_id" {}
 variable "aws_currency" {
     default = "EUR"
 }
