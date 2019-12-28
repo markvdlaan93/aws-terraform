@@ -7,6 +7,7 @@ provider "aws" {
 
 resource "aws_s3_bucket" "terraform_state" {
   bucket = "mvdlaan93-tfstate"
+  acl    = "private"
 
   versioning {
     enabled = true
