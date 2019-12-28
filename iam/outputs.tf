@@ -1,7 +1,7 @@
-output "terraform_cli_user" {
-  value = "${aws_iam_access_key.terraform_end_user_key.user}"
+output "terraform_cli_user_id" {
+  value = "${aws_iam_access_key.terraform_end_user_key.id}"
 }
 
-output "terraform_cli_user_key" {
+output "terraform_cli_user_secret" {
   value = "${aws_iam_access_key.terraform_end_user_key.secret}"
 }
