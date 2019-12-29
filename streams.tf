@@ -47,3 +47,54 @@ resource "aws_kinesis_firehose_delivery_stream" "test_stream" {
         }
     }
 }
+
+resource "aws_kinesis_analytics_application" "test_application" {
+    name = "kinesis-analytics-application-test"
+
+    inputs {
+        name_prefix = "TEST_"
+        kinesis_stream {
+            role_arn     = "${aws_iam_role.firehose_role.arn}"
+            resource_arn = "${aws_kinesis_stream.test_input_stream.arn}"
+        }
+
+        schema {
+            record_columns {
+                mapping  = "$.test"
+                name     = "test"
+                sql_type = "VARCHAR(8)"
+            }
+
+            record_format {
+                mapping_parameters {
+                    json {
+                        record_row_path = "$"
+                    }
+                }
+            }
+        }
+    }
+
+    outputs = [
+        {
+            name = "output_1"
+            schema {
+                record_format_type = "JSON"
+            }
+            kinesis_firehose {
+                role_arn     = "${aws_iam_role.firehose_role.arn}"
+                resource_arn = "${aws_kinesis_firehose_delivery_stream.test_stream.arn}"
+            }
+        },
+        {
+            name = "output_2"
+            schema {
+                record_format_type = "JSON"
+            }
+            kinesis_stream {
+                role_arn     = "${aws_iam_role.firehose_role.arn}"
+                resource_arn = "${aws_kinesis_stream.test_output_stream.arn}"
+            }
+        },
+    ]
+}
