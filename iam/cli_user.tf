@@ -24,3 +24,8 @@ resource "aws_iam_group_policy_attachment" "cli_user_ec2_full_access" {
     group       = "${aws_iam_group.cli_user_group.name}"
     policy_arn  = "arn:aws:iam::aws:policy/AmazonEC2FullAccess"
 }
+
+resource "aws_iam_group_policy_attachment" "cli_user_kinesis_full_access" {
+    group       = "${aws_iam_group.cli_user_group.name}"
+    policy_arn  = "arn:aws:iam::aws:policy/AmazonKinesisFullAccess"
+}

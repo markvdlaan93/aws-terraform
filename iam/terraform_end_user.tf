@@ -40,6 +40,11 @@ resource "aws_iam_group_policy_attachment" "terraform_end_user_kinesis_full_acce
     policy_arn  = "arn:aws:iam::aws:policy/AmazonKinesisFullAccess"
 }
 
+resource "aws_iam_group_policy_attachment" "terraform_end_user_kinesis_firehose_full_access" {
+    group       = "${aws_iam_group.terraform_end_user_group.name}"
+    policy_arn  = "arn:aws:iam::aws:policy/AmazonKinesisFirehoseFullAccess"
+}
+
 resource "aws_iam_group_policy_attachment" "terraform_end_user_dynamo_db_full_access" {
     group       = "${aws_iam_group.terraform_end_user_group.name}"
     policy_arn  = "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess"
