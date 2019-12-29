@@ -54,3 +54,13 @@ resource "aws_iam_group_policy_attachment" "terraform_end_user_sns_full_access" 
     group       = "${aws_iam_group.terraform_end_user_group.name}"
     policy_arn  = "arn:aws:iam::aws:policy/AmazonSNSFullAccess"
 }
+
+resource "aws_iam_group_policy_attachment" "terraform_end_user_cloudwatch_full_access" {
+    group       = "${aws_iam_group.terraform_end_user_group.name}"
+    policy_arn  = "arn:aws:iam::aws:policy/CloudWatchFullAccess"
+}
+
+resource "aws_iam_group_policy_attachment" "terraform_end_user_iam_full_access" {
+    group       = "${aws_iam_group.terraform_end_user_group.name}"
+    policy_arn  = "arn:aws:iam::aws:policy/IAMFullAccess"
+}
