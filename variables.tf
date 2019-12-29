@@ -1,5 +1,5 @@
-variable "aws_ec2_access_key" {}
-variable "aws_ec2_secret_key" {}
+variable "aws_ec2_access_key_end_user" {}
+variable "aws_ec2_secret_key_end_user" {}
 variable "aws_region" {
     default = "eu-west-1"
 }
