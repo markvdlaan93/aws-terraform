@@ -64,3 +64,8 @@ resource "aws_iam_group_policy_attachment" "terraform_end_user_iam_full_access" 
     group       = "${aws_iam_group.terraform_end_user_group.name}"
     policy_arn  = "arn:aws:iam::aws:policy/IAMFullAccess"
 }
+
+resource "aws_iam_group_policy_attachment" "terraform_end_user_kinesis_analytics_full_access" {
+    group       = "${aws_iam_group.terraform_end_user_group.name}"
+    policy_arn  = "arn:aws:iam::aws:policy/AmazonKinesisAnalyticsFullAccess"
+}
