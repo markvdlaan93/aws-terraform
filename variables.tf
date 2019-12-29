@@ -7,6 +7,10 @@ variable "aws_availability_zone" {
     default = "eu-west-1a"
 }
 variable "aws_profile" {}
+variable "aws_account_id" {}
+variable "aws_currency" {
+    default = "EUR"
+}
 variable "aws_ami_ubuntu_server_16_04_lts" {
     default = "ami-0987ee37af7792903"
 }
